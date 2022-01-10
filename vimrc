@@ -30,8 +30,10 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
 Plugin 'vimwiki/vimwiki'
-Plugin 'matze/vim-tex-fold'
+"Plugin 'matze/vim-tex-fold'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'lervag/vimtex'
+Plugin 'goerz/jupytext.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -94,6 +96,26 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" VIMLATEX Stuff
+"
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
+
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+"let g:vimtex_compiler_method = 'latexrun'
+let g:vimtex_fold_enabled = 1
 
 map <Leader><Space> :noh<CR>
 imap jj <Esc>
@@ -102,4 +124,10 @@ nmap rrx  :.s/y/x/g<CR> \<Space>
 nmap rru  :.s/v/u/g<CR> \<Space>
 nmap rrv  :.s/u/v/g<CR> \<Space>
 let mapleader="\<Space>"
+let maplocalleader="\<Space>"
+
+"This should toggle what j and k do
+nmap <silent> <Leader>r :call ToggleDisp()<CR>
+
 finish
+
