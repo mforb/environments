@@ -30,8 +30,12 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
 Plugin 'vimwiki/vimwiki'
-Plugin 'matze/vim-tex-fold'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'lervag/vimtex'
+Plugin 'ctrlpvim/ctrlp.vim' 
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,4 +106,36 @@ nmap rrx  :.s/y/x/g<CR> \<Space>
 nmap rru  :.s/v/u/g<CR> \<Space>
 nmap rrv  :.s/u/v/g<CR> \<Space>
 let mapleader="\<Space>"
+let maplocalleader = "\<Space>"
+let s:enabled = 0
+
+function! ToggleEssayMode()
+    if s:enabled
+        unmap j
+        unmap k
+        let s:enabled = 0
+    else
+        nnoremap j gj
+        nnoremap k gk
+        let s:enabled = 1
+    endif
+endfunction
+
+noremap <silent> <Leader>r :call ToggleEssayMode()<CR>
+
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_types = {
+	\ 'envs' : {
+	\	'whitelist': ['enumerate','itemize','math'],
+	\ },
+\ }
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+set conceallevel=2
+let g:tex_conceal="abdgm"
+
 finish
+
