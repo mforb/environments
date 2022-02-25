@@ -28,7 +28,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'christoomey/vim-system-copy'
 Plugin 'preservim/nerdcommenter'
 Plugin 'tpope/vim-surround'
-Plugin 'valloric/youcompleteme'
+"Plugin 'valloric/youcompleteme'
+Plugin 'ackyshake/VimCompletesMe'
 Plugin 'vimwiki/vimwiki'
 Plugin 'lervag/vimtex'
 Plugin 'ctrlpvim/ctrlp.vim' 
@@ -105,7 +106,7 @@ set softtabstop=2
 
 " Viewer options: One may configure the viewer either by specifying a built-in
 " viewer method:
-let g:vimtex_view_method = 'zathura'
+"let g:vimtex_view_method = 'zathura'
 
 " Or with a generic interface:
 let g:vimtex_view_general_viewer = 'okular'
@@ -119,7 +120,6 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 " supported backends and further explanation is provided in the documentation,
 " see ":help vimtex-compiler".
 "let g:vimtex_compiler_method = 'latexrun'
-let g:vimtex_fold_enabled = 1
 
 map <Leader><Space> :noh<CR>
 imap jj <Esc>
@@ -152,8 +152,8 @@ let g:vimtex_fold_types = {
 	\ },
 \ }
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 set conceallevel=2
